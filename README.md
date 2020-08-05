@@ -13,7 +13,7 @@
 
 ### Association
 - has_many :items, dependent: :destroy​​
-- has_many :order, dependent: :destroy​​
+- has_many :orders, dependent: :destroy​​
 
 
 
@@ -21,12 +21,12 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|postal_code|integer|null: false|
-|prefecture|string|null: false|
+|postal_code_id|integer|null: false|
+|prefecture_id|integer|null: false|
 |city|string|null: false|
 |house_number|string|null: false|
 |building_name|string|-|
-|phone_number|integer|null: false|
+|phone_number|string|null: false|
 |user_id|integer|null: false, foreign_key: true|
 
 
@@ -42,11 +42,11 @@
 |image|text|null: false|
 |name|string|null: false|
 |description|text|null: false|
-|category|string|null: false|
-|condition|string|null: false|
-|delivery_fee_payers|string|null: false|
-|shipping_origin|string|null: false|
-|days_until_shipping|string|null: false|
+|category_id|integer|null: false|
+|condition_id|integer|null: false|
+|delivery_fee_payers_id|integer|null: false|
+|shipping_origin_id|integer|null: false|
+|days_until_shipping_id|integer|null: false|
 |price|integer|null: false|
 |user_id|integer|null: false, foreign_key: true|
 

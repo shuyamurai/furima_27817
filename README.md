@@ -8,7 +8,6 @@
 
 ### Association
 - has_one :user_profile, dependent: :destroy​
-- has_one :user_credit_card, dependent: :destroy​
 - has_many :items, dependent: :destroy​​
 
 
@@ -43,7 +42,7 @@
 
 
 ### Association
-- belongs_to :items
+- belongs_to :item
 
 
 
@@ -73,8 +72,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
-|items_id|integer|null: false, foreign_key: true|
+|item_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
-- belongs_to :items
+- belongs_to :item

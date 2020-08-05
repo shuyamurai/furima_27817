@@ -8,7 +8,6 @@
 
 ### Association
 - has_one :user_profile, dependent: :destroy​
-- has_one :user​_address, dependent: :destroy​
 - has_one :user_credit_card, dependent: :destroy​
 - has_many :items, dependent: :destroy​​
 
@@ -22,9 +21,7 @@
 |family_name|string|null: false|
 |first_name_ kana|string|null: false|
 |family_name_kana|string|null: false|
-|birth_year|date|null: false|
-|birth_month|date|null: false|
-|birth_day|date|null: false|
+|birthday|date|null: false|
 |user_id|integer|null: false, foreign_key: true|
 
 ### Association
@@ -46,23 +43,7 @@
 
 
 ### Association
-- belongs_to :user
-
-
-
-## user_credit_cardテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|card_number|integer|null: false|
-|expiration_year|integer|null: false|
-|expiration_month|integer|null: false|
-|security_code|integer|null: false|
-|user_id|integer|null: false, foreign_key: true|
-
-
-### Association
-- belongs_to :user
+- belongs_to :items
 
 
 
@@ -70,16 +51,30 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|item_image|text|null: false|
-|item_name|string|null: false|
-|item_description|text|null: false|
-|item_category|string|null: false|
-|item_condition|string|null: false|
+|image|text|null: false|
+|name|string|null: false|
+|description|text|null: false|
+|category|string|null: false|
+|condition|string|null: false|
 |delivery_fee_payers|string|null: false|
 |shipping_origin|string|null: false|
 |days_until_shipping|string|null: false|
-|item_price|integer|null: false|
+|price|integer|null: false|
 |user_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
+- has_one :user​_address
+
+
+
+## orderテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|items_id|integer|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user
+- belongs_to :items

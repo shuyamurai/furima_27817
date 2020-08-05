@@ -5,26 +5,16 @@
 |nickname|string|null: false|
 |email|string|null: false|
 |password|string|null: false|
-
-### Association
-- has_one :user_profile, dependent: :destroy​
-- has_many :items, dependent: :destroy​​
-
-
-
-## user​_profileテーブル
-
-|Column|Type|Options|
-|------|----|-------|
 |first_name|string|null: false|
 |family_name|string|null: false|
 |first_name_ kana|string|null: false|
 |family_name_kana|string|null: false|
 |birthday|date|null: false|
-|user_id|integer|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :user
+- has_one :user​_address, dependent: :destroy​
+- has_many :items, dependent: :destroy​​
+- has_many :order, dependent: :destroy​​
 
 
 
@@ -64,7 +54,7 @@
 ### Association
 - belongs_to :user
 - has_one :user​_address
-
+- has_one :order
 
 
 ## orderテーブル

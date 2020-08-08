@@ -6,3 +6,5 @@
 @import "shared/second_fotter";
 @import "shared/second_header";
 @import "modules/exhibit-btn";
+@import "user/login";
+@import "user/registration";

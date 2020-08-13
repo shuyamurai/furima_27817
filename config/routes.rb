@@ -4,4 +4,6 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
   root 'items#index'
+  
+  resources :items, only: [:new, :create]
 end

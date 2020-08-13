@@ -1,11 +1,7 @@
 require 'rails_helper'
 
 describe Item do
-
-
-
   describe '#create' do
-
     before do
       @item = FactoryBot.build(:item)
     end
@@ -98,9 +94,5 @@ describe Item do
       @item.price = '1000'
       expect(@item).to be_valid
     end
-
-
-    
   end
 end
-

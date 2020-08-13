@@ -1,23 +1,19 @@
 require 'rails_helper'
 
 describe User do
-
-
-
   describe '#create' do
-
     before do
       @user = FactoryBot.build(:user)
     end
-# context do
+    # context do
     # 1. 全てのカラムが入力されている時に登録できること
     it 'is valid with a all_column' do
       @user.valid?
       expect(@user).to be_valid
     end
-    #end
+    # end
 
-    #context do
+    # context do
     # 2. emailが空では登録できないこと
     it 'is invalid without a email' do
       @user.email = nil

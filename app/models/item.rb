@@ -10,13 +10,19 @@ class Item < ApplicationRecord
 
   belongs_to :user
 
-  validates :image, presence: true
-  validates :name, presence: true
-  validates :description, presence: true
-  validates :category_id, presence: true, numericality: { other_than: 1 }
-  validates :condition_id, presence: true, numericality: { other_than: 1 }
-  validates :delivery_fee_payers_id, presence: true, numericality: { other_than: 1 }
-  validates :shipping_origin_id, presence: true, numericality: { other_than: 1 }
-  validates :days_until_shipping_id, presence: true, numericality: { other_than: 1 }
-  validates :price, presence: true, numericality: { only_integer: true, greater_than: 300, less_than: 1_000_000 }
+  with_options presence: true do
+  validates :image
+  validates :name
+  validates :description
+  validates :category_id, numericality: { other_than: 1 }
+  validates :condition_id, numericality: { other_than: 1 }
+  validates :delivery_fee_payers_id, numericality: { other_than: 1 }
+  validates :shipping_origin_id,  numericality: { other_than: 1 }
+  validates :days_until_shipping_id, numericality: { other_than: 1 }
+  validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than: 1_000_000 }
+  end
 end
+
+
+
+

@@ -5,5 +5,20 @@ Rails.application.routes.draw do
   }
   root 'items#index'
   
-  resources :items, only: [:new, :create]
+  resources :items, only: [:new, :create, :index]
 end
+
+
+
+
+
+
+# Rails.application.routes.draw do
+#   devise_for :users, controllers: {
+#     registrations: 'users/registrations',
+#     sessions: 'users/sessions'
+#   }
+#   root 'items#index'
+  
+#   resources :items, only: [:new, :create]
+# end

@@ -4,11 +4,12 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :Category
   belongs_to_active_hash :Condition
-  belongs_to_active_hash :Deliveryfeepayers
-  belongs_to_active_hash :Shippingorigin
-  belongs_to_active_hash :Daysuntilshipping
+  belongs_to_active_hash :DeliveryFeePayers
+  belongs_to_active_hash :ShippingOrigin
+  belongs_to_active_hash :DaysUntilShipping
 
   belongs_to :user
+
 
   with_options presence: true do
     validates :image

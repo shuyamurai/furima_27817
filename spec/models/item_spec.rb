@@ -79,7 +79,7 @@ describe Item do
     it 'is invalid cannot register If the price is less than 300, you cannot register' do
       @item.price = '299'
       @item.valid?
-      expect(@item.errors[:price]).to include('must be greater than 300')
+      expect(@item.errors[:price]).to include('must be greater than or equal to 300')
     end
 
     # 12. priceが1000000以上なら登録できないこと

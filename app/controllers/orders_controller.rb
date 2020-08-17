@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   before_action :set_item 
   before_action :move_to_index, only: [:index]
   before_action :move_to_index_soldout, only: [:index]
-
+ 
 
   def index
     @buyer = Buyer.new
@@ -28,6 +28,8 @@ class OrdersController < ApplicationController
     end
   end
 
+  
+
   def move_to_index_soldout
     if @item.order.present?
       redirect_to root_path
@@ -44,7 +46,7 @@ class OrdersController < ApplicationController
   end
 
   def pay_item
-    Payjp.api_key = "PAYJP_SECRET_KEY"  # PAY.JPテスト秘密鍵
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]  # PAY.JPテスト秘密鍵
     Payjp::Charge.create(
       amount: @item.price,  # 商品の値段
       card: user_address_params[:token],    # カードトークン

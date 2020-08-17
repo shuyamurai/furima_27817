@@ -10,6 +10,7 @@ class Item < ApplicationRecord
 
   belongs_to :user
   has_one :order
+  has_one :UserAddress
 
   with_options presence: true do
     validates :image

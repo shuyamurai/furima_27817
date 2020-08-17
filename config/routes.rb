@@ -5,5 +5,9 @@ Rails.application.routes.draw do
   }
   root 'items#index'
 
-  resources :items
+  resources :items do
+    resources :orders
+  end
+  resources :user_addresses, only: [:index]
+
 end

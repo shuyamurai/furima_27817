@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :items, dependent: :destroy
-  has_many :orders,  dependent: :destroy
+  has_many :orders,  dependent: :destroy  
 
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[\w-]{6,128}+\z/i, message: 'Password Include both letters and numbers' }

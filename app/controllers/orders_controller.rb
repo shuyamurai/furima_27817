@@ -18,8 +18,6 @@ class OrdersController < ApplicationController
     else
       render 'index'
     end
-    # @buyer = UserAddress.new(user_address_params)   
-    # @buyer.save
   end
 
   private
@@ -39,7 +37,6 @@ class OrdersController < ApplicationController
 
   def user_address_params
     params.permit(:postal_code, :prefecture_id, :city, :house_number, :building_name, :phone_number, :token, :item_id ).merge(user_id: current_user.id)
-    # params.require(:buyer).permit(prefecture_id: prefecture_id, city: city, house_number: house_number, building_name: building_name, phone_number:phone_number, item_id:item_id, user_id:user_id)
   end
 
   def order_params
@@ -57,26 +54,4 @@ class OrdersController < ApplicationController
   def set_item
     @item = Item.find(params[:item_id])
   end
-
-  # def pay_item
-  #   Payjp.api_key = "sk_test_3f543c1e4eed837823927b12"  # PAY.JPテスト秘密鍵
-  #   Payjp::Charge.create(
-  #     amount: @item.price,  # 商品の値段
-  #     card: user_address_params[:token],    # カードトークン
-  #     currency:'jpy'                 # 通貨の種類, 
-  #     card: params[:card_token] 
-  #   )
-  #     card = Card.new( # トークン化されたカード情報を保存する
-  #       card_token: params[:card_token], # カードトークン
-  #       number_token: number.id
-  #       cvc_token: cvc.id
-  #       exp_month_token: exp_month.id
-  #       exp_year_token: exp_year.id
-  #     )
-  # end
-  # def set_item
-  #   @item = Item.find(params[:item_id])
-  # end
-  
-
 end

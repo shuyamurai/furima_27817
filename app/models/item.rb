@@ -21,6 +21,6 @@ class Item < ApplicationRecord
     validates :delivery_fee_payers_id, numericality: { other_than: 1 }
     validates :shipping_origin_id, numericality: { other_than: 1 }
     validates :days_until_shipping_id, numericality: { other_than: 1 }
-    validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than: 1_000_000 }
+    validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than: 1_000_000 }        
   end
 end
